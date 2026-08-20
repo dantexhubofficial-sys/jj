@@ -1,0 +1,193 @@
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "DantexHub"
+ScreenGui.Parent = PlayerGui
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 380, 0, 450)
+MainFrame.Position = UDim2.new(0.5, -190, 0.5, -225)
+MainFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
+
+local TitleBar = Instance.new("Frame")
+TitleBar.Size = UDim2.new(1, 0, 0, 50)
+TitleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TitleBar.BorderSizePixel = 0
+TitleBar.Parent = MainFrame
+
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Size = UDim2.new(1, 0, 1, 0)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "DantexHub"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleLabel.Font = Enum.Font.GothamBlack
+TitleLabel.TextSize = 20
+TitleLabel.Parent = TitleBar
+
+local TabFrame = Instance.new("Frame")
+TabFrame.Size = UDim2.new(0.45, 0, 1, -50)
+TabFrame.Position = UDim2.new(0, 0, 0, 50)
+TabFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TabFrame.BorderSizePixel = 0
+TabFrame.Parent = MainFrame
+
+local InfoTab = Instance.new("TextButton")
+InfoTab.Size = UDim2.new(0.85, 0, 0, 40)
+InfoTab.Position = UDim2.new(0.075, 0, 0, 15)
+InfoTab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+InfoTab.Text = "Information"
+InfoTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+InfoTab.Font = Enum.Font.GothamBold
+InfoTab.TextSize = 13
+InfoTab.Parent = TabFrame
+
+local EspTab = Instance.new("TextButton")
+EspTab.Size = UDim2.new(0.85, 0, 0, 40)
+EspTab.Position = UDim2.new(0.075, 0, 0, 65)
+EspTab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+EspTab.Text = "Esp"
+EspTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+EspTab.Font = Enum.Font.GothamBold
+EspTab.TextSize = 13
+EspTab.Parent = TabFrame
+
+local AimTab = Instance.new("TextButton")
+AimTab.Size = UDim2.new(0.85, 0, 0, 40)
+AimTab.Position = UDim2.new(0.075, 0, 0, 115)
+AimTab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+AimTab.Text = "Aim"
+AimTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimTab.Font = Enum.Font.GothamBold
+AimTab.TextSize = 13
+AimTab.Parent = TabFrame
+
+local InfoContent = Instance.new("Frame")
+InfoContent.Size = UDim2.new(0.55, 0, 1, -50)
+InfoContent.Position = UDim2.new(0.45, 0, 0, 50)
+InfoContent.BackgroundTransparency = 1
+InfoContent.Parent = MainFrame
+
+local EspContent = Instance.new("Frame")
+EspContent.Size = UDim2.new(0.55, 0, 1, -50)
+EspContent.Position = UDim2.new(0.45, 0, 0, 50)
+EspContent.BackgroundTransparency = 1
+EspContent.Visible = false
+EspContent.Parent = MainFrame
+
+local AimContent = Instance.new("Frame")
+AimContent.Size = UDim2.new(0.55, 0, 1, -50)
+AimContent.Position = UDim2.new(0.45, 0, 0, 50)
+AimContent.BackgroundTransparency = 1
+AimContent.Visible = false
+AimContent.Parent = MainFrame
+
+local InfoTitle = Instance.new("TextLabel")
+InfoTitle.Size = UDim2.new(0.9, 0, 0, 50)
+InfoTitle.Position = UDim2.new(0.05, 0, 0, 15)
+InfoTitle.BackgroundTransparency = 1
+InfoTitle.Text = "On questions or improvements write:"
+InfoTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+InfoTitle.Font = Enum.Font.GothamBold
+InfoTitle.TextSize = 12
+InfoTitle.TextWrapped = true
+InfoTitle.Parent = InfoContent
+
+local EmailLabel = Instance.new("TextLabel")
+EmailLabel.Size = UDim2.new(0.9, 0, 0, 40)
+EmailLabel.Position = UDim2.new(0.05, 0, 0, 75)
+EmailLabel.BackgroundTransparency = 1
+EmailLabel.Text = "dantexhubofficial@gmail.com"
+EmailLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+EmailLabel.Font = Enum.Font.Gotham
+EmailLabel.TextSize = 10
+EmailLabel.TextWrapped = true
+EmailLabel.Parent = InfoContent
+
+local ESPButton = Instance.new("TextButton")
+ESPButton.Size = UDim2.new(0.9, 0, 0, 45)
+ESPButton.Position = UDim2.new(0.05, 0, 0, 10)
+ESPButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+ESPButton.Text = "Esp"
+ESPButton.TextColor3 = Color3.fromRGB(255, 0, 0)
+ESPButton.Font = Enum.Font.GothamBold
+ESPButton.TextSize = 16
+ESPButton.BorderSizePixel = 0
+ESPButton.Parent = EspContent
+
+InfoTab.MouseButton1Click:Connect(function()
+    InfoContent.Visible = true
+    EspContent.Visible = false
+    AimContent.Visible = false
+end)
+
+EspTab.MouseButton1Click:Connect(function()
+    InfoContent.Visible = false
+    EspContent.Visible = true
+    AimContent.Visible = false
+end)
+
+AimTab.MouseButton1Click:Connect(function()
+    InfoContent.Visible = false
+    EspContent.Visible = false
+    AimContent.Visible = true
+end)
+
+local ESPEnabled = false
+local highlights = {}
+
+local function CreateHighlight(player)
+    local highlight = Instance.new("Highlight")
+    highlight.Name = "ESP_" .. player.Name
+    highlight.FillColor = Color3.fromRGB(255, 0, 0)
+    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+    highlight.FillTransparency = 0.5
+    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    highlight.Enabled = false
+    highlight.Parent = nil
+
+    highlights[player] = highlight
+end
+
+local function UpdateHighlights()
+    for player, highlight in pairs(highlights) do
+        if player ~= LocalPlayer and player.Character then
+            highlight.Parent = player.Character
+            highlight.Enabled = ESPEnabled
+        end
+    end
+end
+
+ESPButton.MouseButton1Click:Connect(function()
+    ESPEnabled = not ESPEnabled
+    ESPButton.TextColor3 = ESPEnabled and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+    ESPButton.Text = ESPEnabled and "Esp ON" or "Esp"
+    UpdateHighlights()
+end)
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        CreateHighlight(player)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    if player ~= LocalPlayer then
+        CreateHighlight(player)
+    end
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    if highlights[player] then
+        highlights[player]:Destroy()
+        highlights[player] = nil
+    end
+end)
+
+RunService.RenderStepped:Connect(function()
+    UpdateHighlights()
+end)
